@@ -33,7 +33,7 @@ class Application extends Component {
 
         <div>
           { !currentUser && <SignIn /> }
-          { CurrentUser && <CurrentUser user={currentUser} /> }
+          { currentUser && <CurrentUser user={currentUser} /> }
         </div>
       </div>
     );
