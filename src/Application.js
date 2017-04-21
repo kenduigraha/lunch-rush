@@ -9,9 +9,22 @@ import './Application.css';
 class Application extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      currentUser: null
+    }
+  }
+
+  componentDidMount() {
+    auth.onAuthStateChanged(currentUser => {
+      console.log(currentUser)
+
+      this.setState({ currentUser })
+    })
   }
 
   render() {
+    const { currentUser } = this.state
     return (
       <div className="Application">
         <header className="Application--header">
@@ -19,7 +32,8 @@ class Application extends Component {
         </header>
 
         <div>
-          <SignIn />
+          { !currentUser && <SignIn /> }
+          { CurrentUser && <CurrentUser user={currentUser} /> }
         </div>
       </div>
     );
