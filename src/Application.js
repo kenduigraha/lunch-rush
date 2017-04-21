@@ -22,7 +22,7 @@ class Application extends Component {
 
   componentDidMount() {
     auth.onAuthStateChanged(currentUser => {
-      console.log(currentUser)
+      // console.log(currentUser)
 
       this.setState({ currentUser })
 
@@ -53,7 +53,7 @@ class Application extends Component {
 
               {/*{ map(restaurants, (restaurant, key) => <p key={ key } >{ restaurant.name }</p>)}*/}
               
-              <Restaurants restaurants={ restaurants } />
+              <Restaurants restaurants={ restaurants } user={ currentUser } />
 
               <CurrentUser user={ currentUser } />  
             </div> 
